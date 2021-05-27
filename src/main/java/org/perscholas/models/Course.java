@@ -1,8 +1,6 @@
 package org.perscholas.models;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +8,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-
+@Getter
+@Setter
 //Lombok
 @Data
 @NoArgsConstructor

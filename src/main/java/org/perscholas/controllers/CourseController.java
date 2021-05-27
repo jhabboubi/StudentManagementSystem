@@ -30,9 +30,34 @@ public class CourseController {
             - provide as much as possible e.g. get/post/put/delete mappings
      */
 
-    @GetMapping("/template")
-    public String template(){
-        return "template";
+    @GetMapping("/showcourses")
+    public String newCourse(@ModelAttribute("course") @Valid Course course, BindingResult result, Model model ){
+        System.out.println(result.hasErrors());
+        if(!result.hasErrors()) {
+            List<Course> c = courseService.getCourses();
+            model.addAttribute("courseTemp", c);
+            System.out.println(c);
+        }
+        return "displaycourses";
     }
 
+    @ModelAttribute("course")
+    public Course initCourse(){
+        return new Course();
+    }
+
+    @GetMapping("/registercourse")
+    public String register(){
+        return "registertocourse";
+    }
+
+    @PostMapping("/submit")
+    public String registerCourse(@ModelAttribute("course")@Valid Course course, BindingResult result, Model model){
+
+            Course c = courseService.addNewCourse(course);
+            model.addAttribute("courseTemp", c);
+            System.out.println(c);
+            return "displaycourses";
+
+    }
 }
