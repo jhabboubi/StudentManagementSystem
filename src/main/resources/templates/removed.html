@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" lang="en">
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>New Student</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="../css/styles.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Bare - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
     <link href="../css/mystyles.css" rel="stylesheet"/>
 </head>
-
 <body>
 <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -36,49 +40,10 @@
         </div>
     </div>
 </nav>
+<!-- Page content-->
 <div class="container">
-    <div class="raw">
-        <div class="col">
-        </div>
-
-        <div class="col"> <!-- CHECK THIS CODE - MAY BE WRONG -->
-            <div  th:if="${param.error}" class="error">
-                Invalid username and password.
-            </div>
-            <div  th:if="${param.logout}" class="error">
-                You have been logged out.
-            </div>
-            <!-- Login Form -->
-    <form th:action="@{./submit}" method="post" th:object="${course}">
-        <div class="mx-auto mt-3 form-width bg-dark center h5 pb-2">
-            <label class="center text-white">Register Student</label>
-        </div>
-        <div class="mx-auto form-width">
-            <label for="name" class="form-label">Course Name:</label>
-            <!--    names for inputs must be the same as in the model class-->
-        </div>
-        <div class="mx-auto form-width">
-            <select class="form-control selectpicker" th:field="*{cName}" id="pizza">
-                <option value="">Nothing selected</option>
-                <option th:each="courses : ${course}"
-                        th:value="${courses.cName}"
-                        th:text="${pizza}">pizza
-                </option>
-
-            </select>
-        </div>
-        <div class="mx-auto form-width">
-            <label for="instructor" class="form-label">Instructor Name:</label>
-        </div>
-        <div class="mx-auto form-width">
-            <input type="text" id="instructor" class="form-control" th:field="*{cInstructorName}">
-            <p class="error" th:each="error : ${#fields.errors('cInstructorName')}" th:text="${error}"></p>
-        </div>
-        <div class="mx-auto mt-3 form-width">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-        </div>
+    <div class="text-center mt-5">
+        <h1>Record Removed</h1>
     </div>
 </div>
 <!-- Bootstrap core JS-->

@@ -11,7 +11,6 @@ import java.util.List;
 @Getter
 @Setter
 //Lombok
-@Data
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 //Database

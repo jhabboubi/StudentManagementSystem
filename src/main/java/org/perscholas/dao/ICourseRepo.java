@@ -17,5 +17,5 @@ package org.perscholas.dao;
 @Repository //makes this a repository
 public interface ICourseRepo extends JpaRepository<Course, Long> {
 
-    Optional<Course> findCourseBycName(final String cName);
+    Optional<Course> findCourseByCourseId(final long courseId);
 }

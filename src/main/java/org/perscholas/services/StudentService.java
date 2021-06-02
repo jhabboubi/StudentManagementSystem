@@ -32,14 +32,16 @@ public class StudentService {
     } // end of getStudent()
 
     public Student addNewStudent(Student student) {
-//        //creates studentOptional and sets it to find student by email
+        //creates studentOptional and sets it to find student by email
        Optional<Student> studentOptional = studentRepo.findStudentBysEmail(student.getSEmail());
-//        // check if studentOptional is present and set
+        // check if studentOptional is present and set
        if (studentOptional.isPresent()) {
             throw new IllegalStateException("email taken"); // throws error is email is already taken
         }
         return studentRepo.save(student); //saves the student to the database
    } //end of addNewStudent()
+
+
 }
 
 
