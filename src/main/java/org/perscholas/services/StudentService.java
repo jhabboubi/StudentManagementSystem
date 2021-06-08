@@ -1,5 +1,6 @@
 package org.perscholas.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.perscholas.dao.ICourseRepo;
 import org.perscholas.dao.IStudentRepo;
 import org.perscholas.models.Course;
@@ -10,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @Service
 public class StudentService {
 
@@ -28,18 +29,19 @@ public class StudentService {
 
     //returns all courses
     public List<Student> getStudents() {
+        log.info("Printing students");
         return studentRepo.findAll();
     } // end of getStudent()
 
     public Student addNewStudent(Student student) {
         //creates studentOptional and sets it to find student by email
-       Optional<Student> studentOptional = studentRepo.findStudentBysEmail(student.getSEmail());
+        Optional<Student> studentOptional = studentRepo.findStudentBysEmail(student.getSEmail());
         // check if studentOptional is present and set
-       if (studentOptional.isPresent()) {
+        if (studentOptional.isPresent()) {
             throw new IllegalStateException("email taken"); // throws error is email is already taken
         }
         return studentRepo.save(student); //saves the student to the database
-   } //end of addNewStudent()
+    } //end of addNewStudent()
 
 
 }
