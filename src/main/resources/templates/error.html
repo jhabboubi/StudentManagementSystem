@@ -66,9 +66,14 @@
 <!-- Page content-->
 <div class="container">
     <div class="text-center mt-5">
-        <h1>A Bootstrap 5 Starter Template</h1>
-        <p class="lead">A complete project boilerplate built with Bootstrap</p>
-        <p>Bootstrap v5.0.1</p>
+
+        <h1> ERROR </h1>
+        <div th:if="${message}">
+            <h2 th:text="${message}" />
+
+        </div>
+
+
     </div>
 </div>
 <!-- Bootstrap core JS-->

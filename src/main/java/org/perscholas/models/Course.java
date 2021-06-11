@@ -1,19 +1,21 @@
 package org.perscholas.models;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 
 //Lombok
 @Data
 @NoArgsConstructor
+@RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 //Database
 @Entity
@@ -33,8 +35,12 @@ public class Course implements Serializable {
    */
 
     //fields
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long cId;
+    @NonNull@NotBlank
+    String name;
+    @NonNull
+    int credits;
 
 
 

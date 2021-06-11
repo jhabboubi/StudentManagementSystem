@@ -1,18 +1,17 @@
 package org.perscholas.models;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 //lombok
 @Data
 @NoArgsConstructor
+@RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 //database
 @Entity
@@ -31,8 +30,15 @@ public class Student implements Serializable {
 
     //fields
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long sId;
+    @NonNull @Column(unique = true) @NotBlank
+    String sUsername;
+    @NonNull @NotBlank
+    String sEmail;
+    @NonNull @NotBlank
+    String sPassword;
+
 
 
 
