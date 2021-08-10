@@ -14,9 +14,9 @@
     <meta name="author" content="" />
     <title>Bare - Start Bootstrap Template</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link thhref="@{css/styles.css}" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
 </head>
 <body>
 <!-- Responsive navbar-->
@@ -66,9 +66,17 @@
 <!-- Page content-->
 <div class="container">
     <div class="text-center mt-5">
-        <h1>A Bootstrap 5 Starter Template</h1>
-        <p class="lead">A complete project boilerplate built with Bootstrap</p>
-        <p>Bootstrap v5.0.1</p>
+
+
+<table>
+        <tr th:each="image: ${allimages}">
+            <td th:text="${image.id}" />
+           <!-- <td> <img th:src="@{/files/{path}(path=${image.imageName})}" /> </td> -->
+            <td> <img th:src="${image.imageName}" /> </td>
+        </tr>
+</table>
+
+
     </div>
 </div>
 <!-- Bootstrap core JS-->

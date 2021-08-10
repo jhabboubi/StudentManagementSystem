@@ -38,6 +38,7 @@ public class Student implements Serializable {
     String sEmail;
     @NonNull @NotBlank
     String sPassword;
+    String imagePath;
 
 
 
