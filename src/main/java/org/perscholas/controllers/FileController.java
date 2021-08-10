@@ -30,14 +30,11 @@ public class FileController {
     }
 
     @PostMapping("/uploadfile")
-    public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws FileNotFoundException {
+    public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes,Model model) {
 
         long id = fileService.uploadFile(file);
         redirectAttributes.addFlashAttribute("message", "You successfully uploaded " + file.getOriginalFilename());
-
-
         //redirectAttributes.addFlashAttribute("filename", file.getOriginalFilename());
-
         return "redirect:/uploadform";
 
     }
